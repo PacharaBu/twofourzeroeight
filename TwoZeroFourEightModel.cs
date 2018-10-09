@@ -16,7 +16,7 @@ namespace twozerofoureight
         {
             // default board size is 4 
         }
-
+        public int score = 0;
         public int[,] GetBoard()
         {
             return board;
@@ -36,18 +36,36 @@ namespace twozerofoureight
             board = Random(board);
             NotifyAll();
         }
-
-        private int[,] Random(int[,] input)
+        private bool boardfull()
         {
+            for(int i = 0 ; i <= 3 ; i++)
+            {
+                for(int j = 0 ; j <= 3 ; j++)
+                {
+                    if(board[i,j] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }return true;
+        }
+        private int[,] Random(int[,] input)
+        {   
             while (true)
             {
+                if(boardfull())
+                {
+                    break;
+                }
                 int x = rand.Next(boardSize);
                 int y = rand.Next(boardSize);
+                
                 if (board[x, y] == 0)
                 {
                     board[x, y] = 2;
                     break;
                 }
+                
             }
             return input;
         }
@@ -83,6 +101,8 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score = score + buffer[j - 1];
+
                     }
                 }
                 // shift left again
@@ -135,6 +155,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score = score + buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -189,7 +210,9 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score = score + buffer[j - 1];
                     }
+                    
                 }
                 // shift left again
                 pos = 3;
@@ -240,6 +263,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
+                        score = score + buffer[j - 1];
                     }
                 }
                 // shift left again
@@ -259,6 +283,20 @@ namespace twozerofoureight
             }
             board = Random(board);
             NotifyAll();
+        }
+        public bool Game_Over()
+        {
+            for (int i = 0; i <= 3; i++)
+            {
+                for (int j = 0; j <= 3; j++)
+                {
+                    if (board[i, j] == board[i-1, j]|| board[i, j] == board[i + 1, j]|| board[i, j] == board[i , j - 1] || board[i, j] == board[i , j + 1] )
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

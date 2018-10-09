@@ -75,6 +75,7 @@ namespace twozerofoureight
             UpdateTile(lbl31,board[3, 1]);
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
+            score.Text = Convert.ToString(((TwoZeroFourEightModel)model).score);
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -97,5 +98,19 @@ namespace twozerofoureight
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
         }
 
+        private void lbl31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void score_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnUp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
