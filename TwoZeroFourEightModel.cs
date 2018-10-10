@@ -16,7 +16,7 @@ namespace twozerofoureight
         {
             // default board size is 4 
         }
-        public int score = 0;
+        public string score = "0";
         public int[,] GetBoard()
         {
             return board;
@@ -36,7 +36,7 @@ namespace twozerofoureight
             board = Random(board);
             NotifyAll();
         }
-        private bool boardfull()
+        public bool boardfull()
         {
             for(int i = 0 ; i <= 3 ; i++)
             {
@@ -101,7 +101,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
-                        score = score + buffer[j - 1];
+                        score = Convert.ToString(Convert.ToDouble(score) + buffer[j - 1]);
 
                     }
                 }
@@ -155,7 +155,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
-                        score = score + buffer[j - 1];
+                        score = Convert.ToString(Convert.ToDouble(score) + buffer[j - 1]);
                     }
                 }
                 // shift left again
@@ -210,7 +210,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
-                        score = score + buffer[j - 1];
+                        score = Convert.ToString(Convert.ToDouble(score) + buffer[j - 1]);
                     }
                     
                 }
@@ -263,7 +263,7 @@ namespace twozerofoureight
                     {
                         buffer[j - 1] *= 2;
                         buffer[j] = 0;
-                        score = score + buffer[j - 1];
+                        score = Convert.ToString(Convert.ToDouble(score) + buffer[j - 1]);
                     }
                 }
                 // shift left again
@@ -286,17 +286,25 @@ namespace twozerofoureight
         }
         public bool Game_Over()
         {
-            for (int i = 0; i <= 3; i++)
+            if (boardfull())
             {
-                for (int j = 0; j <= 3; j++)
+                for(int i = 0; i <=2; i++)
                 {
-                    if (board[i, j] == board[i-1, j]|| board[i, j] == board[i + 1, j]|| board[i, j] == board[i , j - 1] || board[i, j] == board[i , j + 1] )
-                    {
-                        return false;
+                    for (int j = 0; j <= 3; j++)
+                        if (board[i,j] != board[i+1,j])
+                    {  
+                        return true;
                     }
                 }
             }
-            return true;
+            return false;
+        }
+        public void GameOver()
+        {
+            if(Game_Over())
+            {
+                 score = "Game Over";
+            }
         }
     }
 }

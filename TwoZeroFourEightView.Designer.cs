@@ -254,6 +254,7 @@
             this.btnLeft.Text = "<";
             this.btnLeft.UseVisualStyleBackColor = true;
             this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
+            this.btnLeft.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnLeft_KeyPress);
             // 
             // btnUp
             // 
@@ -277,6 +278,7 @@
             this.btnRight.Text = ">";
             this.btnRight.UseVisualStyleBackColor = true;
             this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
+            this.btnRight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnRight_KeyPress);
             // 
             // btnDown
             // 
@@ -288,6 +290,7 @@
             this.btnDown.Text = "v";
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
+            this.btnDown.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnDown_KeyPress);
             // 
             // score
             // 

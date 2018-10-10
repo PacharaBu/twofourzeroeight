@@ -75,12 +75,13 @@ namespace twozerofoureight
             UpdateTile(lbl31,board[3, 1]);
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
-            score.Text = Convert.ToString(((TwoZeroFourEightModel)model).score);
+            score.Text = (((TwoZeroFourEightModel)model).score);
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+            
         }
 
         private void btnRight_Click(object sender, EventArgs e)
@@ -110,7 +111,40 @@ namespace twozerofoureight
 
         private void btnUp_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(e.KeyChar == 'w'||e.KeyChar == 'W')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                
+                //this.ActiveControl = btnUp ;
+                this.Focus();
+                //btnUp.Focus();
+            }
+        }
 
+        private void btnDown_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 's')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+            }
+        }
+
+        private void btnRight_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'd' )
+            {
+                
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+            }
+        }
+
+        private void btnLeft_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 'a' || e.KeyChar == 'A')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+            }
         }
     }
 }
+
