@@ -118,28 +118,22 @@ namespace twozerofoureight
         }
 
         private void btnUp_KeyPress(object sender, KeyPressEventArgs e)
-        {   btnUp.Focus();
-           
-            
+        {  
+ 
         }
 
         private void btnDown_KeyPress(object sender, KeyPressEventArgs e)
         {
-            this.btnDown.Text = "s";
-           
+            
         }
 
         private void btnRight_KeyPress(object sender, KeyPressEventArgs e)
-        {   btnRight.Focus();
-
+        {  
         }
 
         private void btnLeft_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // MessageBox.Show(e.KeyChar.ToString());
-            btnLeft.Focus();
-            
-            
+            //MessageBox.Show(e.KeyChar.ToString());
         }
         private void keypress(object sender, KeyPressEventArgs e)
         {
@@ -159,6 +153,31 @@ namespace twozerofoureight
                 btnDown.Focus();
             }
             else if(e.KeyChar == 'w'||e.KeyChar == 'W')
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+                btnUp.Focus();
+            }
+            
+        }
+
+        private void arrow_keys(object sender, KeyEventArgs e)
+        {
+           if(e.KeyCode == Keys.Left)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+                btnLeft.Focus();
+            }
+           else if(e.KeyCode == Keys.Right)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+                btnRight.Focus();
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+                btnDown.Focus();
+            }
+           else if(e.KeyCode == Keys.Up)
             {
                 controller.ActionPerformed(TwoZeroFourEightController.UP);
                 btnUp.Focus();
