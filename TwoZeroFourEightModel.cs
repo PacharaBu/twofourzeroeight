@@ -328,13 +328,13 @@ namespace twozerofoureight
             }
              return false;
         }
-        public void GameOver()
+      /*  public void GameOver()
         {
             if (Game_Over())
             {
                 score = "game over";
             }
             
-        }
+        }*/
     }
 }
