@@ -356,9 +356,9 @@
         private System.Windows.Forms.Label lbl30;
         private System.Windows.Forms.Button btnLeft;
         private System.Windows.Forms.Button btnUp;
-        private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Label score;
+        private System.Windows.Forms.Button btnRight;
     }
 }
 

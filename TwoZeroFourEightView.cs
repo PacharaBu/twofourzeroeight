@@ -76,6 +76,8 @@ namespace twozerofoureight
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
             score.Text = (((TwoZeroFourEightModel)model).score);
+            //score.Text = (((TwoZeroFourEightModel)model).score);
+
         }
 
         private void btnLeft_Click(object sender, EventArgs e)
@@ -110,40 +112,44 @@ namespace twozerofoureight
         }
 
         private void btnUp_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        {   btnUp.Focus();
             if(e.KeyChar == 'w'||e.KeyChar == 'W')
             {
                 controller.ActionPerformed(TwoZeroFourEightController.UP);
                 
                 //this.ActiveControl = btnUp ;
-                this.Focus();
-                //btnUp.Focus();
+                //this.Focus();
+                
             }
+            
         }
 
         private void btnDown_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 's')
+            this.btnDown.Text = "s";
+            if (e.KeyChar == 's' || e.KeyChar == 'S')
             {
                 controller.ActionPerformed(TwoZeroFourEightController.DOWN);
             }
         }
 
         private void btnRight_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 'd' )
+        {   btnRight.Focus();
+            if (e.KeyChar == 'd' || e.KeyChar == 'D')
             {
                 
                 controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
             }
+            
         }
 
         private void btnLeft_KeyPress(object sender, KeyPressEventArgs e)
-        {
+        {   btnLeft.Focus();
             if (e.KeyChar == 'a' || e.KeyChar == 'A')
             {
                 controller.ActionPerformed(TwoZeroFourEightController.LEFT);
             }
+            
         }
     }
 }

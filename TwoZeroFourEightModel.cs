@@ -17,6 +17,7 @@ namespace twozerofoureight
             // default board size is 4 
         }
         public string score = "0";
+        //public string gameover = score;
         public int[,] GetBoard()
         {
             return board;
@@ -288,23 +289,52 @@ namespace twozerofoureight
         {
             if (boardfull())
             {
-                for(int i = 0; i <=2; i++)
+                if(board[0,0] != board[1,0] && board[0,0] != board[0,1])
                 {
-                    for (int j = 0; j <= 3; j++)
-                        if (board[i,j] != board[i+1,j])
-                    {  
-                        return true;
+                    if(board[3,0] != board[2,0] && board[3,0] != board[3,1])
+                    {
+                        if (board[0,3] != board[0,2] && board[0,3] != board[1,3])
+                        {
+                            if (board[3, 3] != board[3, 2] && board[3, 3] != board[2, 3])
+                            {
+                                for (int i = 1; i <= 2; i++)
+                                {
+                                    {
+                                        if (board[i, 0] != board[i+1, 0] && board[i, 0] != board[i - 1, 0] && board[i, 0] != board[i , 1])
+                                        {
+                                            if (board[i, 3] != board[i + 1, 3] && board[i, 3] != board[i - 1, 3] && board[i, 3] != board[i, 2])
+                                            {
+                                                for (int j = 1; j <= 2; j++)
+                                                {
+                                                    if (board[0, j] != board[0, j + 1] && board[0, j] != board[0, j - 1] && board[0, j] != board[1, j])
+                                                    {
+                                                        if (board[3, j] != board[3, j + 1] && board[3, j] != board[3, j - 1] && board[3, j] != board[2, j])
+                                                        {
+                                                            if (board[i, j] != board[i + 1, j] && board[i, j] != board[i - 1, j] && board[i, j] != board[i, j + 1] && board[i, j] != board[i, j - 1])
+                                                            {
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
-            return false;
+             return false;
         }
         public void GameOver()
         {
-            if(Game_Over())
+            if (Game_Over())
             {
-                 score = "Game Over";
+                score = "game over";
             }
+            
         }
     }
 }
