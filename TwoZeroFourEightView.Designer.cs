@@ -49,6 +49,7 @@
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
             this.score = new System.Windows.Forms.Label();
+            this.Gameover = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl00
@@ -310,11 +311,20 @@
             this.score.Text = "0";
             this.score.Click += new System.EventHandler(this.score_Click);
             // 
+            // Gameover
+            // 
+            this.Gameover.Location = new System.Drawing.Point(10, 353);
+            this.Gameover.Name = "Gameover";
+            this.Gameover.Size = new System.Drawing.Size(122, 44);
+            this.Gameover.TabIndex = 0;
+            this.Gameover.Click += new System.EventHandler(this.label1_Click);
+            // 
             // TwoZeroFourEightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 527);
+            this.Controls.Add(this.Gameover);
             this.Controls.Add(this.score);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnRight);
@@ -367,6 +377,7 @@
         private System.Windows.Forms.Button btnDown;
         private System.Windows.Forms.Label score;
         private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Label Gameover;
     }
 }
 

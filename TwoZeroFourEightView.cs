@@ -75,11 +75,12 @@ namespace twozerofoureight
             UpdateTile(lbl31,board[3, 1]);
             UpdateTile(lbl32,board[3, 2]);
             UpdateTile(lbl33,board[3, 3]);
+           
             score.Text = (((TwoZeroFourEightModel)model).score);
             //score.Text = (((TwoZeroFourEightModel)model).score);
             if(((TwoZeroFourEightModel)model).Game_Over())
             {
-                score.Text = "Game over";
+                Gameover.Text = "Game over";
             }
         }
         /*public void game_over()
@@ -183,6 +184,11 @@ namespace twozerofoureight
                 btnUp.Focus();
             }
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
